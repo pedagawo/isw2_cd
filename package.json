@@ -1,0 +1,10 @@
+{
+    "name": "lab06",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node src/server.js",
+        "test": "jest --coverage"
+    },
+    "dependencies": {"express": "5.2.1"},
+    "devDependencies": {"jest": "30.2.0", "supertest": "^6.3.3"}
+}
