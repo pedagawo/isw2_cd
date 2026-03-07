@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.json({ message: 'API Lab06 Activa', version: '1.0.0'});
+    res.json({ message: 'API Lab No.06 Activa, Carné: 20***21', version: '1.0.0'});
 });
 
 // EndPoint a verificar por el pipeline post deploy
