@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/api', (req, res) => {
-    res.json({ message: 'API Lab06 - Estudiante 10***23', version: '1.0.0'});
+    res.json({ message: 'MENSAJE INCORRECTO PARA ROMPER TEST', version: '1.0.0'});
 });
 
 // EndPoint a verificar por el pipeline post deploy
