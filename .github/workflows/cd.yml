@@ -41,15 +41,22 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
 
-      - name: Desencadena el despliegue en Render
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+      - name: Desencadenar despliegue en Render
+        run: |
+          curl --fail -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+          echo "Deploy iniciado para servicio: ${{ secrets.RENDER_SERVICE_ID }}"
 
-      - name: Tiempo de espera para que Render complete el deploy
-        run: sleep 60
+      - name: Esperar que Render complete el deploy
+        run: sleep 90
 
       - name: Verificar que la app responde en PRD
         run: |
-          curl --fail https://isw2-cd.onrender.com/health || exit 1
+          for i in 1 2 3; do
+            curl --fail -s https://isw2-cd.onrender.com/health && exit 0
+            echo "Intento $i fallido, reintentando en 10s..."
+            sleep 10
+          done
+          exit 1
 
       - name: Notificar exito
         if: success()

@@ -3,10 +3,10 @@ const request = require('supertest');
 const app = require('../src/app');
 
 describe('Lab06 API', () => {
-    test('GET / responde con mensaje de bienvenida', async () => {
-        const res = await request(app).get('/');
+    test('GET /api responde con mensaje de bienvenida', async () => {
+        const res = await request(app).get('/api');
         expect(res.statusCode).toBe(200);
-        expect(res.body.message).toBe('API Lab06 Activa');
+        expect(res.body.message).toBe('API Lab06 - Estudiante 10***23');
     });
 
     test('GET /health retorna estado ok', async () => {
@@ -16,7 +16,7 @@ describe('Lab06 API', () => {
     });
 
     test('Incluye versión del app', async () => {
-        const res = await request(app).get('/');
+        const res = await request(app).get('/api');
         expect(res.body).toHaveProperty('version');
     })
 })
