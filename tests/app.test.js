@@ -20,3 +20,4 @@ describe('Lab06 API', () => {
         expect(res.body).toHaveProperty('version');
     })
 })
+
