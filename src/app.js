@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.json({ message: 'API Carnet: 118***3', version: '1.0.0'});
+    res.json({ message: 'Probando uno dos, error', version: '1.0.0'});
 });
 
 // EndPoint a verificar por el pipeline post deploy
